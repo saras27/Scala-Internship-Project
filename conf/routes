@@ -1,0 +1,34 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# https://www.playframework.com/documentation/latest/ScalaRouting
+# ~~~~
+
+# An example controller showing a sample home page
+GET     /                           controllers.HomeController.index()
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+
+GET     /api/ping                           controllers.ApiController.ping
+POST    /api/login                          controllers.UserController.login
+POST    /api/register                       controllers.UserController.register
+GET     /api/showAllUsers                   controllers.UserController.showAllUsers
+POST    /api/createPost                     controllers.PostController.createPost
+POST    /api/editPost/:postId               controllers.PostController.editPost(postId: Long)
+POST    /api/addFriend                      controllers.FriendRequestController.sendFriendRequest
+POST    /api/answerFriendRequest            controllers.FriendRequestController.handleFriendRequestAnswer
+POST    /api/likePost/:postId               controllers.LikeController.likePost(postId: Long)
+POST    /api/unlikePost/:postId             controllers.LikeController.unlikePost(postId: Long)
+POST    /api/searchUsers                    controllers.UserController.searchUsers
+GET     /api/showUserDetails/:userId        controllers.UserController.showUserProfile(userId : Long)
+GET     /api/showByFriends                  controllers.PostController.showByFriends
+POST    /api/updateProfile                  controllers.UserController.updateUserInformation
+POST    /api/updatePicture                  controllers.UserController.uploadPicture
+POST    /api/changePassword                 controllers.UserController.changePassword
+POST    /api/leaveComment/:postId           controllers.CommentController.submitComment(postId: Long)
+POST    /api/forgotPassword                 controllers.UserController.forgotPassword
+POST    /api/resetPassword/:token           controllers.UserController.resetPassword(token:String)
+POST    /api/sendMessage/:userToId          controllers.MessageController.sendMessage(userToId : Long)
+GET     /api/showAllMessages                controllers.MessageController.showAllMessages
+GET     /api/showUsersFriends               controllers.FriendRequestController.showUsersFriends
+GET     /api/showTopPosts                   controllers.PostController.showTopPosts
